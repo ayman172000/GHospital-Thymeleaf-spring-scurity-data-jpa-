@@ -47,6 +47,21 @@
                     </li>
                 </ul>
             </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                    Rendez Vous
+                </a>
+                <ul class="dropdown-menu">
+                    <!--utiliser has autority au lieu de has role-->
+
+                    <li sec:authorize="hasAuthority('ADMIN')">
+                        <a class="dropdown-item" th:href="@{/admin/formRendezVous}">New Rendez-vous</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" th:href="@{/user/RendezVous}">Search Rendez-Vous</a>
+                    </li>
+                </ul>
+            </li>
         </ul>
         <ul class="navbar-nav" >
             <li sec:authorize="isAuthenticated()" class="nav-item dropdown">
