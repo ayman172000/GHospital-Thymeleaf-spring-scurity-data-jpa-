@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="template1"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--pour lier ce contenue avec la section contenet de la page template-->
+<div layout:fragment="content1">
+    <div class="col-md-6 offset-3">
+    <form method="post" th:action="@{/admin/saveMedcin}">
+
+        <label for="nom">Nom</label>
+        <input id="nom" class="form-control" type="text" name="nom" th:value="${medcin.nom}">
+        <span class="text-danger" th:errors="${medcin.nom}"></span>
+
+        <label for="mail">mail</label>
+        <input id="mail" class="form-control" type="email" name="mail" th:value="${medcin.mail}">
+        <span class="text-danger" th:errors="${medcin.mail}"></span>
+
+        <label for="specialite">specialite</label>
+        <input id="specialite" class="form-control" type="text" name="specialite" th:value="${medcin.specialite}">
+        <span class="text-danger" th:errors="${medcin.specialite}"></span>
+
+
+        <br>
+
+
+
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+
+    </div>
+</div>
+</body>
+</html>

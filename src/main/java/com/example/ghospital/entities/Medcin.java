@@ -6,12 +6,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.util.Collection;
 @Entity
 @Data @NoArgsConstructor @AllArgsConstructor
 public class Medcin {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @NotEmpty
     private String nom,mail,specialite;
     private StatusRdv status;
     @OneToMany(mappedBy = "medcin",fetch = FetchType.LAZY)

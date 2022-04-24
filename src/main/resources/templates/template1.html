@@ -24,8 +24,27 @@
                 <ul class="dropdown-menu">
                     <!--utiliser has autority au lieu de has role-->
 
-                    <li sec:authorize="hasAuthority('ADMIN')"><a class="dropdown-item" th:href="@{/admin/formPatients}">New patient</a></li>
-                    <li><a class="dropdown-item" th:href="@{/user/patients}">Search patient</a></li>
+                    <li sec:authorize="hasAuthority('ADMIN')">
+                        <a class="dropdown-item" th:href="@{/admin/formPatients}">New patient</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" th:href="@{/user/patients}">Search patient</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                    Medcin
+                </a>
+                <ul class="dropdown-menu">
+                    <!--utiliser has autority au lieu de has role-->
+
+                    <li sec:authorize="hasAuthority('ADMIN')">
+                        <a class="dropdown-item" th:href="@{/admin/formMedcins}">New medcin</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" th:href="@{/user/medcins}">Search medcin</a>
+                    </li>
                 </ul>
             </li>
         </ul>

@@ -26,10 +26,10 @@ public class MedcinController {
             @RequestParam(name = "page",defaultValue = "0") int page,
             @RequestParam(name = "size",defaultValue = "5") int size,
             @RequestParam(name = "KeyWord",defaultValue = "") String KeyWord) {
-        Page<Medcin> PagePatients=medcinRepositorie.findByNomContains(KeyWord, PageRequest.of(page,size));
+        Page<Medcin> PageMedcins=medcinRepositorie.findByNomContains(KeyWord, PageRequest.of(page,size));
         //Page<Patient> PagePatients=patientRepository.findAll(PageRequest.of(page,size));
-        model.addAttribute("listPatients",PagePatients.getContent());
-        model.addAttribute("pages",new int[PagePatients.getTotalPages()]);
+        model.addAttribute("listMedcins",PageMedcins.getContent());
+        model.addAttribute("pages",new int[PageMedcins.getTotalPages()]);
         model.addAttribute("currentPage",page);
         model.addAttribute("KeyWord",KeyWord);
         return "medcins";//une vue basée sur lae moteur de recherche tymelift
