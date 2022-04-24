@@ -23,7 +23,7 @@ public class PatientController {
     private PatientRepositorie patientRepository;
     //injection se fait via constructeur
 
-    @GetMapping(path = "/user/patient")
+    @GetMapping(path = "/user/patients")
     public  String patients(
             Model model,
             @RequestParam(name = "page",defaultValue = "0") int page,
@@ -50,13 +50,14 @@ public class PatientController {
 
     }
     //fonction qui retourne les patients en forma json
+    /*
     @GetMapping("user/patients")
     @ResponseBody
     public List<Patient> Listpatients()
     {
         return patientRepository.findAll();
     }
-
+    */
     @GetMapping("/admin/formPatients")
     public String formPatients(Model model){
         //pour des valeur par default
