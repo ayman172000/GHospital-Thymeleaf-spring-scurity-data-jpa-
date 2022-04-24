@@ -23,23 +23,27 @@
                 </a>
                 <ul class="dropdown-menu">
                     <!--utiliser has autority au lieu de has role-->
-                    <li sec:authorize="hasAuthority('ADMIN')"><a class="dropdown-item" th:href="@{/admin/formPatients}">New patient</a></li>
+                    <!--<li sec:authorize="hasAuthority('ADMIN')">-->
+                    <li><a class="dropdown-item" th:href="@{/admin/formPatients}">New patient</a></li>
                     <li><a class="dropdown-item" th:href="@{/user/index}">Search patient</a></li>
                     <li><a class="dropdown-item" th:href="@{/user/index}">Search patient</a></li>
                 </ul>
             </li>
         </ul>
         <ul class="navbar-nav" >
-            <li sec:authorize="isAuthenticated()" class="nav-item dropdown">
+            <!--<li sec:authorize="isAuthenticated()" class="nav-item dropdown">-->
+            <li class="nav-item dropdown">
                 <a  class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                    <span sec:authentication="name"></span>
+                    <!--<span sec:authentication="name"></span>-->
+                    name
                 </a>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" th:href="@{/logout}">Logout</a></li>
                     <li><a class="dropdown-item" th:href="@{/index}">Compte</a></li>
                 </ul>
             </li>
-            <li  sec:authorize="!isAuthenticated()" class="nav-item">
+            <!--<li  sec:authorize="!isAuthenticated()" class="nav-item">-->
+            <li class="nav-item">
                 <a class="nav-link" th:href="@{/login}">Login</a>
             </li>
         </ul>

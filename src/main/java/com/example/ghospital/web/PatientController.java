@@ -22,10 +22,8 @@ public class PatientController {
     //@Autowired ca vas marché mais pas recomendé il faut utilisee un constructeur parametré
     private PatientRepositorie patientRepository;
     //injection se fait via constructeur
-    /*public PatientController(PatientRepository patientRepository) {
-        this.patientRepository = patientRepository;
-    }*/
-    @GetMapping(path = "/user/index")
+
+    @GetMapping(path = "/user/patient")
     public  String patients(
             Model model,
             @RequestParam(name = "page",defaultValue = "0") int page,
@@ -43,7 +41,7 @@ public class PatientController {
     public String Delete(long id,String KeyWord,int page)
     {
         patientRepository.deleteById(id);
-        return "redirect:/user/index?page="+page+"&KeyWord="+KeyWord;
+        return "redirect:/user/patient?page="+page+"&KeyWord="+KeyWord;
     }
     @GetMapping ("/")
     public String Home()
@@ -76,7 +74,7 @@ public class PatientController {
     {
         if(bindingResult.hasErrors()) return "formPatients";
         patientRepository.save(patient);
-        return "redirect:/user/index?page="+page+"&keyword="+keyword;
+        return "redirect:/user/patient?page="+page+"&keyword="+keyword;
     }
 
     /*
