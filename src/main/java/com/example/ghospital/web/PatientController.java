@@ -41,7 +41,7 @@ public class PatientController {
     public String Delete(long id,String KeyWord,int page)
     {
         patientRepository.deleteById(id);
-        return "redirect:/user/patient?page="+page+"&KeyWord="+KeyWord;
+        return "redirect:/user/patients?page="+page+"&KeyWord="+KeyWord;
     }
     @GetMapping ("/")
     public String Home()
@@ -75,7 +75,7 @@ public class PatientController {
     {
         if(bindingResult.hasErrors()) return "formPatients";
         patientRepository.save(patient);
-        return "redirect:/user/patient?page="+page+"&keyword="+keyword;
+        return "redirect:/user/patients?page="+page+"&keyword="+keyword;
     }
 
     /*
