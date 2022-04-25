@@ -21,5 +21,9 @@ public interface PatientRepositorie extends JpaRepository<Patient,Long> {
     Page<Patient> findByDateNaissBetween(Date d1, Date d2, Pageable pageable);
     Page<Patient> findByNomContains(String kw,Pageable pageable);
     @Query("select p from Patient p where p.dateNaiss between :x and :y or p.nom like :z") //requette hql
-    Page<Patient> chercherPatients (@Param("x") Date d1, @Param("y") Date d2, @Param("z") String nom, Pageable pageable);
+    Page<Patient> chercherPatients (
+            @Param("x") Date d1,
+            @Param("y") Date d2,
+            @Param("z") String nom,
+            Pageable pageable);
 }
