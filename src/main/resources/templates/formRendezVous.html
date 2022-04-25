@@ -11,7 +11,7 @@
 <!--pour lier ce contenue avec la section contenet de la page template-->
 <div layout:fragment="content1">
     <div class="col-md-6 offset-3">
-    <form method="post" th:action="@{/admin/saveRendezVous}">
+    <form method="get" th:action="@{/admin/saveRendezVous}">
 
         <label for="Date">Date</label>
         <input id="Date" class="form-control" type="Date" name="Date" th:value="${RendezVous.date}">

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
+import java.util.UUID;
 
 @Controller
 @AllArgsConstructor
@@ -52,20 +53,25 @@ public class RendezVousController {
         //pour des valeur par default
         model.addAttribute("RendezVous",new RendezVous());
         model.addAttribute("Patients",medcinRepositorie.findAll());
-        model.addAttribute("Medcins",medcinRepositorie.findAll());
+        model.addAttribute("Medcins",patientRepositorie.findAll());
         return "formRendezVous";
     }
 
-    @PostMapping("/admin/saveRendezVous")
+    @GetMapping("/admin/saveRendezVous")
     public String save(
             Model model,
+            Long medcin,
+            Long patient,
             @Valid RendezVous rendezVous,
             BindingResult bindingResult,
-            @RequestParam(defaultValue = "") String keyword,
+            @RequestParam(defaultValue = "ayman") String keyword,
             @RequestParam(defaultValue = "0") int page)
     {
         if(bindingResult.hasErrors()) return "formRendezVous";
         rendezVous.setStatus(StatusRdv.PENDING);
+        rendezVous.setPatient(patientRepositorie.findById(patient).orElse(null));
+        rendezVous.setMedcin(medcinRepositorie.findById(medcin).orElse(null));
+        rendezVous.setId(UUID.randomUUID().toString());
         rendezVousRepositorie.save(rendezVous);
         return "redirect:/user/RendezVous?page="+page+"&keyword="+keyword;
     }

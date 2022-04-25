@@ -11,7 +11,8 @@
 <!--pour lier ce contenue avec la section contenet de la page template-->
 <div layout:fragment="content1">
     <div class="col-md-6 offset-3">
-    <form method="post" th:action="@{/admin/saveRendezVous(page=${page},keyword=${keyword})}">
+
+    <form method="get" th:action="@{/admin/saveRendezVous(page=${page},keyword=${keyword})}">
 
         <label th:text="${rendezVous.id}">ID</label>
         <input id="id" class="form-control" type="hidden" name="id" th:value="${rendezVous.id}">
