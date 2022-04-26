@@ -73,6 +73,9 @@ un framework Java/Java EE qui fournit l'authentification, l'autorisation et d'au
 ### Securtity Config
 <img src="SecurityConfigPNG.PNG">
 
+## Git Logs
+<img src="gitLog.PNG">
+
 # Getting Started
 
 ### Reference Documentation
